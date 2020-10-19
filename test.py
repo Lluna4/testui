@@ -2,43 +2,127 @@ import tkinter
 import time
 from tkinter import filedialog, Text
 import os
-m1 = int(500 * 0.8)
-m2 = int(1000 * 0.8)
+import sys
+import PIL
+from PIL import Image, ImageTk
+import requests
+from io import BytesIO
+import time
+
+
+
+m1 = int(500*0.8)
+m2 = int(1000*0.8)
+
 explicacion_partes1 = "-Vas del reactor: És un recipient on es produeix la fissió hi estan el combustible (urani o plutoni) i l'irradiador de neutrons, per trencar els nuclis"
 explicacion_partes11 = "del combustible"
 explicacion_partes2 = "-Moderador: Redueix la velocitat del neutrons, per assegurar la fissió i fer-la mes llarga, els moderadors mes utilitzats son l'aigua, l'aigua pesant"
 explicacion_partes3 = "(format per atoms d'hidrogen amb 2 neutrons, mes conegut com deuteri) i el grafit"
+explicacion_tipos_PWR1 = "Es el mes usat a nivell mundial, el refrigrant es impulsat per tot el vas i er l'intercambiador o generador de vapor, el pressionador fa que que l'aigua"
+explicacion_tipos_PWR12 = "del refrigerador no entri en ebullició.El generador de vapor transfereix la calor del primer circuit al segon on l'aigua s'evapora i s'introdueix al"
+explicacion_tipos_PWR13 = "reescalfador per eliminar l'humitat i així es converteix en vapor sec, i entra a la turbina on gracies a la pressió del gas la fa girar i produeix energia."
+explicacion_tipos_PWR2 = "Despres de passar per la turbina, es va al condensador on torna a estat liquid i repeteix el procés."
 root = tkinter.Tk()
-
 def Partes():
-    texto_en_pantala = tkinter.Label(frame, text=explicacion_partes1, bg="grey")
-    texto_en_pantala2 = tkinter.Label(frame, text=explicacion_partes11, bg="grey")
-    texto_en_pantala3 = tkinter.Label(frame, text=explicacion_partes2, bg="grey")
-    texto_en_pantala4 = tkinter.Label(frame, text=explicacion_partes3, bg="grey")
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    titulo = tkinter.Label(frame2, text="Parts", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    texto_en_pantala = tkinter.Label(frame2, text=explicacion_partes1, bg="black", fg="green")
+    texto_en_pantala2 = tkinter.Label(frame2, text=explicacion_partes11, bg="black", fg="green")
+    texto_en_pantala3 = tkinter.Label(frame2, text=explicacion_partes2, bg="black", fg="green")
+    texto_en_pantala4 = tkinter.Label(frame2, text=explicacion_partes3, bg="black", fg="green")
     
     print("pulsado")
+    titulo.pack(side="top")
     texto_en_pantala.pack(side="top")
     texto_en_pantala2.pack(side="top")
     texto_en_pantala3.pack(side="top")
     texto_en_pantala4.pack(side="top")
 
 
-    
-    
+def Tipos():
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    titulo1 = tkinter.Label(frame2, text="Tipus", bg="black", fg="green")
+    titulo1.config(font=("arial", 50))
+    texto_en_pantala21 = tkinter.Label(frame2, text=explicacion_tipos_PWR1, bg="black", fg="green")
+    texto_en_pantala22 = tkinter.Label(frame2, text=explicacion_tipos_PWR12, bg="black", fg="green")
+    texto_en_pantala23 = tkinter.Label(frame2, text=explicacion_tipos_PWR13, bg="black", fg="green")
+    texto_en_pantala24 = tkinter.Label(frame2, text=explicacion_tipos_PWR2, bg="black", fg="green")
+
+    print("pulsado")
+    titulo1.pack(side="top")
+    texto_en_pantala21.pack(side="top")
+    texto_en_pantala22.pack(side="top")
+    texto_en_pantala23.pack(side="top")
+    texto_en_pantala24.pack(side="top")
+
+
+
+    intro3 = tkinter.Label(frame2, text="Vols saber mes? Pulsa un dels botons a baix per saber mes sobre les centrals nuclears", bg="black", fg="green")
+    intro3.pack()
+
 
 
 
 canvas = tkinter.Canvas(root, height=500, width=1000)
 canvas.pack()
 
+
+
+
+
+
+
+
 frame = tkinter.Frame(root, bg="black")
-frame.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+frame.place(relwidth=1, relheight=1)
 
-partes = tkinter.Button(frame, text="Partes", padx=10, pady=5, command=Partes)
-partes.pack()
 
-Tipos = tkinter.Button(frame, text="Tipos", padx=10, pady=5)
-Tipos.pack()
+frame2 = tkinter.Frame(root, bg="black")
+frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
+
+
+def intro11():
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    for widget in frame.winfo_children():
+        widget.destroy()
+    intro = tkinter.Label(frame2, text="Hola!, Les centrals nuclears son maquines increibles amb una gran capacitat de producció, el seu funcionament es com una central termica convencional", bg="black", fg="green")
+    intro.pack()
+    intro.after(0, intro22())
+
+def intro22():
+    intro2 = tkinter.Label(frame2, text="pero amb un element mes, el reactor, un lloc on s'irradia neutrons a nuclis pesats (com urani o plutoni) per trencar el seus nuclis i produir energia", bg="black", fg="green")
+    intro2.pack()
+    intro2.after(0, intro33)
+
+
+
+
+def intro33():
+    intro3 = tkinter.Label(frame2, text="Vols saber mes? Pulsa un dels botons a baix per saber mes sobre les centrals nuclears", bg="black", fg="green")
+    intro3.pack()
+    
+    partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
+    partes.pack(side="top")
+    tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
+    tipos.pack(side="top")
+    
+
+
+
+
+
+
+
+
+
+INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
+INICIO.pack(side="top")
+
+
 
 root.mainloop()
 
