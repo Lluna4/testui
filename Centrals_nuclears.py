@@ -141,7 +141,7 @@ canvas.pack()
 
 
 frame = tkinter.Frame(root, bg="black")
-frame.place(relwidth=0.95, relheight=0.95
+frame.place(relwidth=1, relheight=1
 )
 
 
