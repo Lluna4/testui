@@ -23,11 +23,12 @@ explicacion_tipos_PWR12 = "del refrigerador no entri en ebullició.El generador 
 explicacion_tipos_PWR13 = "reescalfador per eliminar l'humitat i així es converteix en vapor sec, i entra a la turbina on gracies a la pressió del gas la fa girar i produeix energia."
 explicacion_tipos_PWR2 = "Despres de passar per la turbina, es va al condensador on torna a estat liquid i repeteix el procés."
 root = tkinter.Tk()
+root.title("Centrals nuclears")
 
 
 def Partes():
-    
-    
+    PWR_boton.pack_forget()
+    BWR_boton.pack_forget()   
     for widget in frame2.winfo_children():
         widget.destroy()
     titulo = tkinter.Label(frame2, text="Parts", bg="black", fg="green")
@@ -43,13 +44,16 @@ def Partes():
     texto_en_pantala2.pack(side="top")
     texto_en_pantala3.pack(side="top")
     texto_en_pantala4.pack(side="top")
+    partes.pack(side="top")
+    tipos.pack(side="top")
+
 
 
 
 def Tipos():
-    
-    partes.destroy()
-    tipos.destroy()
+    volver_boton_PWR.pack_forget()
+    partes.pack_forget()
+    tipos.pack_forget()
     for widget in frame.winfo_children():
         widget.destroy()
     for widget in frame2.winfo_children():
@@ -61,6 +65,7 @@ def Tipos():
     PWR_boton.pack(side="top")
     
     BWR_boton.pack(side="top")
+    volver_boton_Tipos.pack(anchor=tkinter.E)
 
      
     titulo.pack(side="top")
@@ -70,8 +75,9 @@ def Tipos():
 
 
 def PWR():
-    
-   
+    volver_boton_Tipos.pack_forget()
+    PWR_boton.pack_forget()
+    BWR_boton.pack_forget()
     for widget in frame2.winfo_children():
         widget.destroy()
     titulo1 = tkinter.Label(frame2, text="PWR", bg="black", fg="green")
@@ -87,6 +93,8 @@ def PWR():
     texto_en_pantala22.pack(side="top")
     texto_en_pantala23.pack(side="top")
     texto_en_pantala24.pack(side="top")
+
+    volver_boton_PWR.pack(side="top")
     
 
 
@@ -95,34 +103,10 @@ def PWR():
     intro3.pack()
   
     
-
-
-  
-
-
-
-
-
-canvas = tkinter.Canvas(root, height=500, width=1000)
-canvas.pack()
-
-
-
-
-
-
-
-
-frame = tkinter.Frame(root, bg="black")
-frame.place(relwidth=1, relheight=1)
-
-
-frame2 = tkinter.Frame(root, bg="black")
-frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
-
-
 def intro11():
-    
+    volver_boton_Tipos.pack_forget()
+    PWR_boton.pack_forget()
+    BWR_boton.pack_forget()
     for widget in frame2.winfo_children():
         widget.destroy()
     for widget in frame.winfo_children():
@@ -135,13 +119,11 @@ def intro11():
 
     intro.after(0, intro22())
 
+  
 def intro22():
     intro2 = tkinter.Label(frame2, text="pero amb un element mes, el reactor, un lloc on s'irradia neutrons a nuclis pesats (com urani o plutoni) per trencar el seus nuclis i produir energia", bg="black", fg="green")
     intro2.pack()
     intro2.after(0, intro33)
-
-
-
 
 def intro33():
     intro3 = tkinter.Label(frame2, text="Vols saber mes? Pulsa un dels botons a baix per saber mes sobre les centrals nuclears", bg="black", fg="green")
@@ -151,12 +133,23 @@ def intro33():
     partes.pack(side="top")
    
     tipos.pack(side="top")
+
+
     
+canvas = tkinter.Canvas(root, height=500, width=1000)
+canvas.pack()
 
 
+frame = tkinter.Frame(root, bg="black")
+frame.place(relwidth=1, relheight=1)
 
 
+frame2 = tkinter.Frame(root, bg="black")
+frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
+
+volver_boton_PWR = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=Tipos)
+volver_boton_Tipos = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=intro11)
 PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
 BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=PWR)   #cambia el comando a bwr cuando lo tengas hecho
 partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
@@ -169,5 +162,26 @@ INICIO.pack(side="top")
 
 
 root.mainloop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
 
 
