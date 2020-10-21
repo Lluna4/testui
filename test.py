@@ -23,7 +23,11 @@ explicacion_tipos_PWR12 = "del refrigerador no entri en ebullició.El generador 
 explicacion_tipos_PWR13 = "reescalfador per eliminar l'humitat i així es converteix en vapor sec, i entra a la turbina on gracies a la pressió del gas la fa girar i produeix energia."
 explicacion_tipos_PWR2 = "Despres de passar per la turbina, es va al condensador on torna a estat liquid i repeteix el procés."
 root = tkinter.Tk()
+
+
 def Partes():
+    
+    
     for widget in frame2.winfo_children():
         widget.destroy()
     titulo = tkinter.Label(frame2, text="Parts", bg="black", fg="green")
@@ -41,10 +45,36 @@ def Partes():
     texto_en_pantala4.pack(side="top")
 
 
+
 def Tipos():
+    
+    partes.destroy()
+    tipos.destroy()
+    for widget in frame.winfo_children():
+        widget.destroy()
     for widget in frame2.winfo_children():
         widget.destroy()
-    titulo1 = tkinter.Label(frame2, text="Tipus", bg="black", fg="green")
+    titulo = tkinter.Label(frame2, text="Sobre que part vols saber?", bg="black", fg="green")
+    titulo.config(font=("arial", 30)) 
+    titulo.pack(side="top")
+    
+    PWR_boton.pack(side="top")
+    
+    BWR_boton.pack(side="top")
+
+     
+    titulo.pack(side="top")
+    
+
+
+
+
+def PWR():
+    
+   
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    titulo1 = tkinter.Label(frame2, text="PWR", bg="black", fg="green")
     titulo1.config(font=("arial", 50))
     texto_en_pantala21 = tkinter.Label(frame2, text=explicacion_tipos_PWR1, bg="black", fg="green")
     texto_en_pantala22 = tkinter.Label(frame2, text=explicacion_tipos_PWR12, bg="black", fg="green")
@@ -57,11 +87,18 @@ def Tipos():
     texto_en_pantala22.pack(side="top")
     texto_en_pantala23.pack(side="top")
     texto_en_pantala24.pack(side="top")
+    
 
 
 
     intro3 = tkinter.Label(frame2, text="Vols saber mes? Pulsa un dels botons a baix per saber mes sobre les centrals nuclears", bg="black", fg="green")
     intro3.pack()
+  
+    
+
+
+  
+
 
 
 
@@ -85,12 +122,17 @@ frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
 
 def intro11():
+    
     for widget in frame2.winfo_children():
         widget.destroy()
     for widget in frame.winfo_children():
         widget.destroy()
+    titulo2 = tkinter.Label(frame2, text="Centrals nuclears", bg="black", fg="green")
+    titulo2.config(font=("arial", 50))
     intro = tkinter.Label(frame2, text="Hola!, Les centrals nuclears son maquines increibles amb una gran capacitat de producció, el seu funcionament es com una central termica convencional", bg="black", fg="green")
+    titulo2.pack()
     intro.pack()
+
     intro.after(0, intro22())
 
 def intro22():
@@ -105,9 +147,9 @@ def intro33():
     intro3 = tkinter.Label(frame2, text="Vols saber mes? Pulsa un dels botons a baix per saber mes sobre les centrals nuclears", bg="black", fg="green")
     intro3.pack()
     
-    partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
+    
     partes.pack(side="top")
-    tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
+   
     tipos.pack(side="top")
     
 
@@ -115,8 +157,10 @@ def intro33():
 
 
 
-
-
+PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
+BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=PWR)   #cambia el comando a bwr cuando lo tengas hecho
+partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
+tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
 
 
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
