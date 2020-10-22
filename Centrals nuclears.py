@@ -35,6 +35,9 @@ explcacion_equipamiento_ECon1 = "A dintre hi esta la sala de control, lloc on es
 explcacion_equipamiento_ECon2 = "Aquest proces esta automatizat per l’ordinador central."
 explcacion_equipamiento_EAux1 = "A dintre hi han sistemes de seguretat i sistemes auxiliars per si els principals fallen, també hi estan els sistemes de tractament de residus d’activitat baixa,"
 explcacion_equipamiento_EAux2 = "l’equip de filtratge i l’aire condicionat de l’edifici de contenció i el seu propi."
+explicacion_funcionamiento1 = "L'energia en forma de vapor a altes pressions es transportat del reactor a la turbina on produeix energia elèctrica per després anar al l’alternador on es lliura a la"
+explicacion_funcionamiento2 = "xarxa, el vapor que ha passat per la turbina es condensa per després tornar-se a vaporitzar, i així es tanca el circuit, en canvi el circuit de refrigeració és obert,"
+explicacion_funcionamiento3 = "per tant, l’aigua que s’utilitza prové d’un riu que al terminar al seu recorregut torna al riu, si el riu és escàs, es refreda abans de tornar al riu."
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
@@ -243,7 +246,33 @@ def EAUX():
 
 
 
+def Funcionamiento():
+    volver_boton_equipamiento.pack_forget()
+    partes.pack_forget()
+    tipos.pack_forget() 
+    equipamiento.pack_forget()
+    Funcionamiento_boton.pack_forget()
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    titulo = tkinter.Label(frame2, text="Funcionament", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
 
+    texto_funcionamiento1 = tkinter.Label(frame2, text=explicacion_funcionamiento1, bg="black", fg="green")
+    texto_funcionamiento2 = tkinter.Label(frame2, text=explicacion_funcionamiento2, bg="black", fg="green")
+    texto_funcionamiento3 = tkinter.Label(frame2, text=explicacion_funcionamiento3, bg="black", fg="green")
+    texto_funcionamiento1.pack(side="top")
+    texto_funcionamiento2.pack(side="top")
+    texto_funcionamiento3.pack(side="top")
+    volver_boton_funcionamiento_inicio.pack(side="top")
+
+
+
+    
+    
 
 
 def PWR():
@@ -357,6 +386,8 @@ def intro33():
 
     equipamiento.pack(side="top")
 
+    Funcionamiento_boton.pack(side="top")
+
 
 
 def pagp():
@@ -375,7 +406,8 @@ def pagp():
     ECon.pack_forget()
     ECom.pack_forget()
     EAux.pack_forget()
-    
+    Funcionamiento_boton.pack_forget()
+    volver_boton_funcionamiento_inicio.pack_forget()
     titulo_pagp = tkinter.Label(frame2, text="QUE VOLS SABER?", bg="black", fg="darkgreen") #cambia el color a green cuando acabes
     titulo_pagp.config(font=("arial", 50))
 
@@ -385,6 +417,7 @@ def pagp():
     tipos.pack(side="top")
     titulo_pagp.pack(side="top")
     equipamiento.pack(side="top")
+    Funcionamiento_boton.pack(side="top")
 
 
     
@@ -404,6 +437,7 @@ frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 volver_boton_PWR = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=Tipos)
 volver_boton_equipamiento = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=Equipamiento)
 volver_boton_equipamiento_inicio = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
+volver_boton_funcionamiento_inicio = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 volver_boton_Tipos = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
 BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=BWR)   #cambia el comando a bwr cuando lo tengas hecho
@@ -416,6 +450,7 @@ ET = tkinter.Button(root, text="Edifici de tubines", padx=10, pady=5, command=ET
 ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, command=ECOM) #cambia a Ecom cuando este hecho
 ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=ECOn) #cambia a ECon cuando este hecho            
 EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=EAUX) #cambia a EAux cuando este hecho
+Funcionamiento_boton = tkinter.Button(root, text="Funcionament", padx=10, pady=5, command=Funcionamiento)
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
 INICIO.pack(side="top")
 
