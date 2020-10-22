@@ -25,6 +25,10 @@ explicacion_tipos_PWR2 = "Despres de passar per la turbina, es va al condensador
 explicacion_tipos_BWR1 = "Es un sistema on l’aigua actua com a moderador(sustancia utilitzada per fer mes lentes les reaccions) i com a refrigerant al mateix temps, l’aigua"
 explicacion_tipos_BWR2 = "que entra en ebullició es pasa a un assecador per a fer un vapor sec i despres a la turbina. El circuit te que ser tancat perque l’aigua ha estat "
 explicacion_tipos_BWR3 = "en contacte amb el combustible"
+explcacion_tipos_NR1 = "Son centrals sense moderador, aixi que la reacció es molt mes rapida, per tant es necessita un gran volum de combustble, per evitar sobrecalentaments"
+explcacion_tipos_NR2 = "s’utilitzen dos circuits de refrigeració amb sodi liquid, s’utilitzen com combustibles l’urani 235 i el plutoni 239 recoberts per urani 238 que al absorbir"
+explcacion_tipos_NR3 = " neutrons es converteix en plutoni 239 i aixo fa que es produeixi mes combustible del que es gasta, el fucionament del circuit de vapor es un circuit"
+explcacion_tipos_NR4 = "que entra en ebullició i aquest vapor es seca i entra al transformador, es condensa i torna al circuit"
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
@@ -68,6 +72,8 @@ def Tipos():
     PWR_boton.pack(side="top")
     
     BWR_boton.pack(side="top")
+    
+    NR_boton.pack(side="top")
     volver_boton_Tipos.pack(anchor=tkinter.E)
 
      
@@ -81,6 +87,7 @@ def PWR():
     volver_boton_Tipos.pack_forget()
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
+    NR_boton.pack_forget()
     for widget in frame2.winfo_children():
         widget.destroy()
     titulo1 = tkinter.Label(frame2, text="PWR", bg="black", fg="green")
@@ -109,6 +116,7 @@ def BWR():
     volver_boton_Tipos.pack_forget()
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
+    NR_boton.pack_forget()
     for widget in frame2.winfo_children():
         widget.destroy()
     
@@ -126,6 +134,29 @@ def BWR():
     volver_boton_PWR.pack(side="top")
     
 
+def NR():
+    volver_boton_Tipos.pack_forget()
+    PWR_boton.pack_forget()
+    BWR_boton.pack_forget()
+    NR_boton.pack_forget()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    tituloNR = tkinter.Label(frame2, text="Neutrons Rapids", bg="black", fg="green")
+    tituloNR.config(font=("arial", 40))
+    tituloNR.pack(side="top")
+
+    texto_NR1 = tkinter.Label(frame2, text=explcacion_tipos_NR1, bg="black", fg="green")
+    texto_NR2 = tkinter.Label(frame2, text=explcacion_tipos_NR2, bg="black", fg="green")
+    texto_NR3 = tkinter.Label(frame2, text=explcacion_tipos_NR3, bg="black", fg="green")
+    texto_NR4 = tkinter.Label(frame2, text=explcacion_tipos_NR4, bg="black", fg="green")
+
+    texto_NR1.pack(side="top")
+    texto_NR2.pack(side="top")
+    texto_NR3.pack(side="top")
+    texto_NR4.pack(side="top")
+    volver_boton_PWR.pack(side="top")
+    
 
 
 
@@ -133,6 +164,7 @@ def intro11():
     volver_boton_Tipos.pack_forget()
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
+    NR_boton.pack_forget()
     for widget in frame2.winfo_children():
         widget.destroy()
     for widget in frame.winfo_children():
@@ -171,6 +203,7 @@ def pagp():
     volver_boton_Tipos.pack_forget()
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
+    NR_boton.pack_forget()
     
     titulo_pagp = tkinter.Label(frame2, text="QUE VOLS SABER?", bg="black", fg="darkgreen") #cambia el color a green cuando acabes
     titulo_pagp.config(font=("arial", 50))
@@ -199,6 +232,7 @@ volver_boton_PWR = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, co
 volver_boton_Tipos = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
 BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=BWR)   #cambia el comando a bwr cuando lo tengas hecho
+NR_boton = tkinter.Button(root, text="Neutron rapids", padx=10, pady=5, command=NR)
 partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
 tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
 
