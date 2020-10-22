@@ -31,7 +31,10 @@ explcacion_equipamiento_ET2 = "prescalfadors i els rescalfadors. En les centrals
 explcacion_equipamiento_ECom1 = "Emmagatzema el combustible del reactor i el combustible ja utilitzat en espera per el seu reprocessament. El combustible que no ha sigut utilitzat"
 explcacion_equipamiento_ECom2 = "s'emmagatzema en piscines de formigó folrat amb acer (com la capa exterior de l’edifici de contenció) i que ja ha estat utilitzat s’emmagatzema"
 explcacion_equipamiento_ECom3 = "en piscines d’aigua. Aquest edifici esta connectat amb el reactor per fer la recarrega de combustible lo mes segura possible i sense emissions."
-
+explcacion_equipamiento_ECon1 = "A dintre hi esta la sala de control, lloc on es monitoritza tota la central i on es donen ordres en base a les dades que s’han rebut."
+explcacion_equipamiento_ECon2 = "Aquest proces esta automatizat per l’ordinador central."
+explcacion_equipamiento_EAux1 = "A dintre hi han sistemes de seguretat i sistemes auxiliars per si els principals fallen, també hi estan els sistemes de tractament de residus d’activitat baixa,"
+explcacion_equipamiento_EAux2 = "l’equip de filtratge i l’aire condicionat de l’edifici de contenció i el seu propi."
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
@@ -105,6 +108,8 @@ def Equipamiento():
     EC.pack(side="top")
     ET.pack(side="top")
     ECom.pack(side="top")
+    ECon.pack(side="top")
+    EAux.pack(side="top")
 
 
 
@@ -185,6 +190,58 @@ def ECOM():
     texto_ECom2.pack(side="top")
     texto_ECom3.pack(side="top")
     volver_boton_equipamiento.pack(side="top")
+
+
+def ECOn():
+    volver_boton_equipamiento_inicio.pack_forget()
+    EC.pack_forget()
+    ECom.pack_forget()
+    ECon.pack_forget()
+    EAux.pack_forget()
+    ET.pack_forget()
+    
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    titulo = tkinter.Label(frame2, text="Edifici de control", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
+    
+    texto_Econ1 = tkinter.Label(frame2, text=explcacion_equipamiento_ECon1, bg="black", fg="green")
+    texto_Econ2 = tkinter.Label(frame2, text=explcacion_equipamiento_ECon2, bg="black", fg="green")
+   
+    texto_Econ1.pack(side="top")
+    texto_Econ2.pack(side="top")
+    volver_boton_equipamiento.pack(side="top")
+
+
+def EAUX():
+    volver_boton_equipamiento_inicio.pack_forget()
+    EC.pack_forget()
+    ECom.pack_forget()
+    ECon.pack_forget()
+    EAux.pack_forget()
+    ET.pack_forget()
+    
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    titulo = tkinter.Label(frame2, text="Edifici auxiliar", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
+
+    texto_EAux1 = tkinter.Label(frame2, text=explcacion_equipamiento_EAux1, bg="black", fg="green")
+    texto_EAux2 = tkinter.Label(frame2, text=explcacion_equipamiento_EAux2, bg="black", fg="green")
+    texto_EAux1.pack(side="top")
+    texto_EAux2.pack(side="top")
+    volver_boton_equipamiento.pack(side="top")
+
+
+
 
 
 
@@ -357,8 +414,8 @@ equipamiento = tkinter.Button(root, text="Equipament", padx=10, pady=5, command=
 EC = tkinter.Button(root, text="Edifici de contenció", padx=10, pady=5, command=EC) #cambia a EC cuando este hecho
 ET = tkinter.Button(root, text="Edifici de tubines", padx=10, pady=5, command=ET) #cambia a ET cuando este hecho
 ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, command=ECOM) #cambia a Ecom cuando este hecho
-ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=Equipamiento) #cambia a ECon cuando este hecho            
-EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=Equipamiento) #cambia a EAux cuando este hecho
+ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=ECOn) #cambia a ECon cuando este hecho            
+EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=EAUX) #cambia a EAux cuando este hecho
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
 INICIO.pack(side="top")
 
