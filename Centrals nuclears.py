@@ -24,6 +24,8 @@ explcacion_tipos_NR1 = "Son centrals sense moderador, aixi que la reacció es mo
 explcacion_tipos_NR2 = "s’utilitzen dos circuits de refrigeració amb sodi liquid, s’utilitzen com combustibles l’urani 235 i el plutoni 239 recoberts per urani 238 que al absorbir"
 explcacion_tipos_NR3 = " neutrons es converteix en plutoni 239 i aixo fa que es produeixi mes combustible del que es gasta, el fucionament del circuit de vapor es un circuit"
 explcacion_tipos_NR4 = "que entra en ebullició i aquest vapor es seca i entra al transformador, es condensa i torna al circuit"
+explcacion_equipamiento_EC1 = "En el seu interior té el reactor i el circuit primari, està fet per formigó especial folrat d’acer per evitar qualsevol emissió inclus en un accident"
+explcacion_equipamiento_EC2 = ", es tan estable que resisteix terratremols."
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
@@ -73,6 +75,73 @@ def Tipos():
 
      
     titulo.pack(side="top")
+    
+
+def Equipamiento():
+    volver_boton_equipamiento.pack_forget()
+    partes.pack_forget()
+    tipos.pack_forget() 
+    equipamiento.pack_forget()
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    
+    
+    titulo1 = tkinter.Label(frame2, text="Sobre que part del", bg="black", fg="green")
+    titulo2 = tkinter.Label(frame2, text="equipament vols saber?", bg="black", fg="green")
+    titulo1.config(font=("arial", 40))
+    titulo1.pack(side="top")
+    titulo2.config(font=("arial", 40))
+    titulo2.pack(side="top")
+    volver_boton_equipamiento_inicio.pack(anchor=tkinter.E)
+    EC.pack(side="top")
+
+
+
+def EC():
+    volver_boton_equipamiento_inicio.pack_forget()
+    EC.pack_forget()
+    ECom.pack_forget()
+    ECon.pack_forget()
+    EAux.pack_forget()
+    ET.pack_forget()
+    
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    titulo = tkinter.Label(frame2, text="Edifici de contenció", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
+
+    texto_EC1 = tkinter.Label(frame2, text=explcacion_equipamiento_EC1, bg="black", fg="green")
+    texto_EC1.pack(side="top")
+    texto_EC2 = tkinter.Label(frame2, text=explcacion_equipamiento_EC2, bg="black", fg="green")
+    texto_EC2.pack(side="top")
+    
+    volver_boton_equipamiento.pack(side="top")
+
+
+
+def ET():
+    volver_boton_equipamiento_inicio.pack_forget()
+    EC.pack_forget()
+    ECom.pack_forget()
+    ECon.pack_forget()
+    EAux.pack_forget()
+    ET.pack_forget()
+    
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+
+    titulo = tkinter.Label(frame2, text="Edifici de turbines", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
     
 
 
@@ -187,6 +256,8 @@ def intro33():
    
     tipos.pack(side="top")
 
+    equipamiento.pack(side="top")
+
 
 
 def pagp():
@@ -196,6 +267,7 @@ def pagp():
     for widget in frame.winfo_children():
         widget.destroy()
     volver_boton_Tipos.pack_forget()
+    volver_boton_equipamiento_inicio.pack_forget()
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
     NR_boton.pack_forget()
@@ -224,14 +296,20 @@ frame2.place(relwidth=0.8, relheight=0.8, relx=0.1, rely=0.1)
 
 
 volver_boton_PWR = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=Tipos)
+volver_boton_equipamiento = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=Equipamiento)
+volver_boton_equipamiento_inicio = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 volver_boton_Tipos = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
 BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=BWR)   #cambia el comando a bwr cuando lo tengas hecho
 NR_boton = tkinter.Button(root, text="Neutrons rapids", padx=10, pady=5, command=NR)
-partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
-tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
-
-
+partes = tkinter.Button(root, text="Parts", padx=10, pady=5, command=Partes)
+tipos = tkinter.Button(root, text="Tipus", padx=10, pady=5, command=Tipos)
+equipamiento = tkinter.Button(root, text="Equipament", padx=10, pady=5, command=Equipamiento)
+EC = tkinter.Button(root, text="Edifici de contenció", padx=10, pady=5, command=EC) #cambia a EC cuando este hecho
+ET = tkinter.Button(root, text="Edifici de tubines", padx=10, pady=5, command=Equipamiento) #cambia a ET cuando este hecho
+ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, command=Equipamiento) #cambia a Ecom cuando este hecho
+ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=Equipamiento) #cambia a ECon cuando este hecho            
+EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=Equipamiento) #cambia a EAux cuando este hecho
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
 INICIO.pack(side="top")
 
