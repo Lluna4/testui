@@ -232,7 +232,7 @@ volver_boton_PWR = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, co
 volver_boton_Tipos = tkinter.Button(root, text="Torna enrere", padx=10, pady=5, command=pagp)
 PWR_boton = tkinter.Button(root, text="PWR", padx=10, pady=5, command=PWR)
 BWR_boton = tkinter.Button(root, text="BWR", padx=10, pady=5, command=BWR)   #cambia el comando a bwr cuando lo tengas hecho
-NR_boton = tkinter.Button(root, text="Neutron rapids", padx=10, pady=5, command=NR)
+NR_boton = tkinter.Button(root, text="Neutrons rapids", padx=10, pady=5, command=NR)
 partes = tkinter.Button(root, text="Partes", padx=10, pady=5, command=Partes)
 tipos = tkinter.Button(root, text="Tipos", padx=10, pady=5, command=Tipos)
 
