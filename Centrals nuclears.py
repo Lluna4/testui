@@ -38,13 +38,30 @@ explcacion_equipamiento_EAux2 = "l’equip de filtratge i l’aire condicionat d
 explicacion_funcionamiento1 = "L'energia en forma de vapor a altes pressions es transportat del reactor a la turbina on produeix energia elèctrica per després anar al l’alternador on es lliura a la"
 explicacion_funcionamiento2 = "xarxa, el vapor que ha passat per la turbina es condensa per després tornar-se a vaporitzar, i així es tanca el circuit, en canvi el circuit de refrigeració és obert,"
 explicacion_funcionamiento3 = "per tant, l’aigua que s’utilitza prové d’un riu que al terminar al seu recorregut torna al riu, si el riu és escàs, es refreda abans de tornar al riu."
+explicacion_seguridad1 = "Les centrals nuclears contaminen de maneres diferents a les centrals tèrmiques convencionals, hi ha contaminació tèrmica i química de l’aigua refrigerant i residual i"
+explicacion_seguridad2 = "la contaminació acústica, a part de la radioactiva."
+explicacion_seguridad3 = "El lloc on es construeix una central nuclear es determina segon uns estuidis en la zona com poden ser: la demografia, les vies de comunicació i la proximidad a municipis."
+explicacion_seguridad4 = "La construcció te que complir unes normes molt estrictes per garantir la seguretat de totes les persones i del medi ambient."
+explicacion_seguridad5 = "La seguretat maxima s’aconsegueix amb els sistemes de control duplicats i que tot estigui a prova de fuites i d’accidents."
+explicacion_seguridad6 = "Hi han uns requisits perquè les centrals siguin totalment segures: que tingui un personal altament qualificat i entrenats per a qualsevol emergència, que es revisi"
+explicacion_seguridad7 = "tota la central cada any, aprofitant la pausa per la recàrrega de combustible, que es controli constantment tots els equips i que hi hagi un manteniment preventiu"
+explicacion_seguridad8 = "programat, que es controlin totes les emissions, que es detecti i que s’identifiqui qualsevol anomalia, si se superen el limits de radiació s’ha d’activar un sistema"
+explicacion_seguridad9 = "d’alarma i es te que actuar inmediatament i que es mesuri constantment les emissions en la zona de la central."
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
 
 def Partes():
     PWR_boton.pack_forget()
-    BWR_boton.pack_forget()   
+    BWR_boton.pack_forget()
+    tipos.pack_forget()
+    volver_boton_PWR.pack_forget()
+    partes.pack_forget()
+    
+    equipamiento.pack_forget()
+    Funcionamiento_boton.pack_forget()
+    SEG_boton.pack_forget() 
+      
     for widget in frame2.winfo_children():
         widget.destroy()
     titulo = tkinter.Label(frame2, text="Parts", bg="black", fg="green")
@@ -60,8 +77,9 @@ def Partes():
     texto_en_pantala2.pack(side="top")
     texto_en_pantala3.pack(side="top")
     texto_en_pantala4.pack(side="top")
-    partes.pack(side="top")
-    tipos.pack(side="top")
+   
+    
+    volver_boton_equipamiento_inicio.pack(side="top")
 
 
 
@@ -70,6 +88,10 @@ def Tipos():
     volver_boton_PWR.pack_forget()
     partes.pack_forget()
     tipos.pack_forget()
+    equipamiento.pack_forget()
+    Funcionamiento_boton.pack_forget()
+    SEG_boton.pack_forget()
+
     for widget in frame.winfo_children():
         widget.destroy()
     for widget in frame2.winfo_children():
@@ -94,6 +116,8 @@ def Equipamiento():
     partes.pack_forget()
     tipos.pack_forget() 
     equipamiento.pack_forget()
+    Funcionamiento_boton.pack_forget()
+    SEG_boton.pack_forget()
     for widget in frame.winfo_children():
         widget.destroy()
     for widget in frame2.winfo_children():
@@ -252,6 +276,7 @@ def Funcionamiento():
     tipos.pack_forget() 
     equipamiento.pack_forget()
     Funcionamiento_boton.pack_forget()
+    SEG_boton.pack_forget()
     for widget in frame.winfo_children():
         widget.destroy()
     for widget in frame2.winfo_children():
@@ -271,7 +296,45 @@ def Funcionamiento():
 
 
 
+
+def SEG():  
+    volver_boton_equipamiento.pack_forget()
+    partes.pack_forget()
+    tipos.pack_forget() 
+    equipamiento.pack_forget()
+    Funcionamiento_boton.pack_forget()
+    SEG_boton.pack_forget()
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
     
+    titulo = tkinter.Label(frame2, text="Seguretat i contaminació", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
+
+    texto_seguridad1 = tkinter.Label(frame2, text=explicacion_seguridad1, bg="black", fg="green")
+    texto_seguridad2 = tkinter.Label(frame2, text=explicacion_seguridad2, bg="black", fg="green")
+    texto_seguridad3 = tkinter.Label(frame2, text=explicacion_seguridad3, bg="black", fg="green")
+    texto_seguridad4 = tkinter.Label(frame2, text=explicacion_seguridad4, bg="black", fg="green")
+    texto_seguridad5 = tkinter.Label(frame2, text=explicacion_seguridad5, bg="black", fg="green")
+    texto_seguridad6 = tkinter.Label(frame2, text=explicacion_seguridad6, bg="black", fg="green")
+    texto_seguridad7 = tkinter.Label(frame2, text=explicacion_seguridad7, bg="black", fg="green")
+    texto_seguridad8 = tkinter.Label(frame2, text=explicacion_seguridad8, bg="black", fg="green")
+
+    texto_seguridad1.pack(side="top")
+    texto_seguridad2.pack(side="top")
+    texto_seguridad3.pack(side="top")
+    texto_seguridad4.pack(side="top")
+    texto_seguridad5.pack(side="top")
+    texto_seguridad6.pack(side="top")
+    texto_seguridad7.pack(side="top")
+    texto_seguridad8.pack(side="top")
+    volver_boton_equipamiento_inicio.pack(side="top")
+
+
+
+
     
 
 
@@ -388,6 +451,8 @@ def intro33():
 
     Funcionamiento_boton.pack(side="top")
 
+    SEG_boton.pack(side="top")
+
 
 
 def pagp():
@@ -418,6 +483,7 @@ def pagp():
     titulo_pagp.pack(side="top")
     equipamiento.pack(side="top")
     Funcionamiento_boton.pack(side="top")
+    SEG_boton.pack(side="top")
 
 
     
@@ -451,6 +517,7 @@ ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, comm
 ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=ECOn) #cambia a ECon cuando este hecho            
 EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=EAUX) #cambia a EAux cuando este hecho
 Funcionamiento_boton = tkinter.Button(root, text="Funcionament", padx=10, pady=5, command=Funcionamiento)
+SEG_boton = tkinter.Button(root, text="Seguretat", padx=10, pady=5, command=SEG)
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
 INICIO.pack(side="top")
 
