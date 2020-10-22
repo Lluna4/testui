@@ -3,16 +3,11 @@ import time
 from tkinter import filedialog, Text
 import os
 import sys
-import PIL
-from PIL import Image, ImageTk
-import requests
-from io import BytesIO
-import time
 
 
 
-m1 = int(500*0.8)
-m2 = int(1000*0.8)
+
+
 
 explicacion_partes1 = "-Vas del reactor: És un recipient on es produeix la fissió hi estan el combustible (urani o plutoni) i l'irradiador de neutrons, per trencar els nuclis"
 explicacion_partes11 = "del combustible"
