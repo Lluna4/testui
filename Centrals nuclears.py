@@ -26,6 +26,12 @@ explcacion_tipos_NR3 = " neutrons es converteix en plutoni 239 i aixo fa que es 
 explcacion_tipos_NR4 = "que entra en ebullició i aquest vapor es seca i entra al transformador, es condensa i torna al circuit"
 explcacion_equipamiento_EC1 = "En el seu interior té el reactor i el circuit primari, està fet per formigó especial folrat d’acer per evitar qualsevol emissió inclus en un accident"
 explcacion_equipamiento_EC2 = ", es tan estable que resisteix terratremols."
+explcacion_equipamiento_ET1 = "A dintre estan la turbina i l’alternador (encargats de transformar l’ energia cinetica del vapor a electrica), tambe la part que condensa el vapor, els"
+explcacion_equipamiento_ET2 = "prescalfadors i els rescalfadors. En les centrals BWR esta protegit de les emissions de l’aigua radioactiva"
+explcacion_equipamiento_ECom1 = "Emmagatzema el combustible del reactor i el combustible ja utilitzat en espera per el seu reprocessament. El combustible que no ha sigut utilitzat"
+explcacion_equipamiento_ECom2 = "s'emmagatzema en piscines de formigó folrat amb acer (com la capa exterior de l’edifici de contenció) i que ja ha estat utilitzat s’emmagatzema"
+explcacion_equipamiento_ECom3 = "en piscines d’aigua. Aquest edifici esta connectat amb el reactor per fer la recarrega de combustible lo mes segura possible i sense emissions."
+
 root = tkinter.Tk()
 root.title("Centrals nuclears")
 
@@ -97,6 +103,8 @@ def Equipamiento():
     titulo2.pack(side="top")
     volver_boton_equipamiento_inicio.pack(anchor=tkinter.E)
     EC.pack(side="top")
+    ET.pack(side="top")
+    ECom.pack(side="top")
 
 
 
@@ -142,7 +150,41 @@ def ET():
     titulo = tkinter.Label(frame2, text="Edifici de turbines", bg="black", fg="green")
     titulo.config(font=("arial", 50))
     titulo.pack()
+
+    texto_ET1 = tkinter.Label(frame2, text=explcacion_equipamiento_ET1, bg="black", fg="green")
+    texto_ET1.pack(side="top")
+    texto_ET2 = tkinter.Label(frame2, text=explcacion_equipamiento_ET2, bg="black", fg="green")
+    texto_ET2.pack(side="top")
+
+    volver_boton_equipamiento.pack(side="top")
+
     
+
+def ECOM():
+    volver_boton_equipamiento_inicio.pack_forget()
+    EC.pack_forget()
+    ECom.pack_forget()
+    ECon.pack_forget()
+    EAux.pack_forget()
+    ET.pack_forget()
+    
+    for widget in frame.winfo_children():
+        widget.destroy()
+    for widget in frame2.winfo_children():
+        widget.destroy()
+    
+    titulo = tkinter.Label(frame2, text="Edifici de combustible", bg="black", fg="green")
+    titulo.config(font=("arial", 50))
+    titulo.pack()
+
+    texto_ECom1 =tkinter.Label(frame2, text=explcacion_equipamiento_ECom1, bg="black", fg="green")
+    texto_ECom2 =tkinter.Label(frame2, text=explcacion_equipamiento_ECom2, bg="black", fg="green")
+    texto_ECom3 =tkinter.Label(frame2, text=explcacion_equipamiento_ECom3, bg="black", fg="green")
+    
+    texto_ECom1.pack(side="top")
+    texto_ECom2.pack(side="top")
+    texto_ECom3.pack(side="top")
+    volver_boton_equipamiento.pack(side="top")
 
 
 
@@ -271,14 +313,21 @@ def pagp():
     PWR_boton.pack_forget()
     BWR_boton.pack_forget()
     NR_boton.pack_forget()
+    ET.pack_forget()
+    EC.pack_forget()
+    ECon.pack_forget()
+    ECom.pack_forget()
+    EAux.pack_forget()
     
     titulo_pagp = tkinter.Label(frame2, text="QUE VOLS SABER?", bg="black", fg="darkgreen") #cambia el color a green cuando acabes
     titulo_pagp.config(font=("arial", 50))
 
     partes.pack(side="top")
+    
    
     tipos.pack(side="top")
     titulo_pagp.pack(side="top")
+    equipamiento.pack(side="top")
 
 
     
@@ -306,8 +355,8 @@ partes = tkinter.Button(root, text="Parts", padx=10, pady=5, command=Partes)
 tipos = tkinter.Button(root, text="Tipus", padx=10, pady=5, command=Tipos)
 equipamiento = tkinter.Button(root, text="Equipament", padx=10, pady=5, command=Equipamiento)
 EC = tkinter.Button(root, text="Edifici de contenció", padx=10, pady=5, command=EC) #cambia a EC cuando este hecho
-ET = tkinter.Button(root, text="Edifici de tubines", padx=10, pady=5, command=Equipamiento) #cambia a ET cuando este hecho
-ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, command=Equipamiento) #cambia a Ecom cuando este hecho
+ET = tkinter.Button(root, text="Edifici de tubines", padx=10, pady=5, command=ET) #cambia a ET cuando este hecho
+ECom = tkinter.Button(root, text="Edifici de combustible", padx=10, pady=5, command=ECOM) #cambia a Ecom cuando este hecho
 ECon = tkinter.Button(root, text="Edifici de control", padx=10, pady=5, command=Equipamiento) #cambia a ECon cuando este hecho            
 EAux = tkinter.Button(root, text="Edifici auxiliar", padx=10, pady=5, command=Equipamiento) #cambia a EAux cuando este hecho
 INICIO = tkinter.Button(frame, text="INICIO", padx=10, pady=5, command=intro11)
